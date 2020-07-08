@@ -1,16 +1,35 @@
-const redBtn = document.querySelector(".red");
+// function changeBackgroundColorToBlue() {
+//   document.body.style.backgroundColor = "blue";
+// }
 
-redBtn.addEventListener("click", changeBackgroundColorToRed);
+// function changeBackgroundColorToRed() {
+//   document.body.style.backgroundColor = "red";
+// }
 
-const blueBtn = document.querySelector(".blue");
-blueBtn.addEventListener("click", changeBackgroundColorToBlue);
+// create 9 div and use a flex-box square
+let playerTurn = true;
+let myCells = document.querySelectorAll(".square");
+console.log(myCells);
+const resetBtn = document.querySelector(".button-reset");
+let reset = () => {
+  myCells.forEach((cell) => {
+    cell.style.backgroundColor = "#ccc";
+    cell.addEventListener("click", clickCell);
+  });
+};
+resetBtn.addEventListener("click", reset);
+let clickCell = (event) => {
+  console.log("clicked");
+  if (playerTurn === true) {
+    event.target.style.backgroundColor = "red";
+  } else {
+    event.target.style.backgroundColor = "blue";
+  }
+  event.target.attributes[2].value = "clicked";
+  playerTurn = !playerTurn;
+  event.target.removeEventListener("click", clickCell);
+};
 
-function changeBackgroundColorToBlue() {
-  // No need to change the content of this function. Don't worry if this code is new to you.
-  document.body.style.backgroundColor = "blue";
-}
-
-function changeBackgroundColorToRed() {
-  // No need to change the content of this function. Don't worry if this code is new to you.
-  document.body.style.backgroundColor = "red";
-}
+myCells.forEach((cell) => {
+  cell.addEventListener("click", clickCell);
+});
