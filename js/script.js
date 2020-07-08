@@ -13,7 +13,6 @@ let reset = (event) => {
 };
 resetBtn.addEventListener("click", reset);
 let clickCell = (event) => {
-  console.log("clicked");
   if (playerTurn) {
     event.target.style.backgroundColor = "red";
     moves[event.target.id] = "red";
