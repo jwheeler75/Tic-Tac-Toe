@@ -22,7 +22,12 @@ body {
   letter-spacing: 2px;
   color: black;
 }
-
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
 .title {
   width: 100%;
   text-align: center;
